@@ -15,11 +15,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        date_current.text = "Novembre 2017"
-        date_previous.text = "Octobre"
+        current_date.text = "Novembre 2017"
+        previous_date.text = "Octobre"
 
-        balance_current.text = "+5000"
-        online_current.text = "+5000"
+        current_balance_value.text = "+5000"
+        current_online_value.text = "+5000"
 
         balance_previous.text = "+5000"
         online_previous.text = "+5000"

@@ -1,172 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:background="@color/background"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
     tools:context="net.brach.android.bratafrik.MainActivity">
 
-    <TextView android:id="@+id/date_current"
-        tools:text="Novembre 2017"
-        android:textSize="26sp"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        android:layout_marginTop="24dp"
-        android:layout_gravity="center_horizontal"
+    <TextView
+        android:id="@+id/current_date"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:textColor="@android:color/black"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Novembre 2017" />
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:baselineAligned="false"
-        android:layout_gravity="center_horizontal"
+    <ImageView
+        android:id="@+id/weather"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        android:padding="32dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toStartOf="@+id/half"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/current_date"
+        app:srcCompat="@drawable/sun" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/half"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".5" />
+
+    <TextView
+        android:id="@+id/current_balance_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="balance"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/current_online_title"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/weather"
+        app:layout_constraintStart_toStartOf="@+id/half"
+        app:layout_constraintTop_toBottomOf="@+id/current_date" />
+
+    <TextView
+        android:id="@+id/current_online_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:text="online"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/current_balance_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/current_balance_title"
+        app:layout_constraintTop_toTopOf="@+id/current_balance_title" />
+
+    <TextView
+        android:id="@+id/current_balance_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/current_balance_title"
+        app:layout_constraintStart_toStartOf="@+id/current_balance_title"
+        app:layout_constraintTop_toBottomOf="@+id/current_balance_title"
+        tools:text="+5000" />
+
+    <TextView
+        android:id="@+id/current_online_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/current_online_title"
+        app:layout_constraintStart_toStartOf="@+id/current_online_title"
+        app:layout_constraintTop_toBottomOf="@+id/current_online_title"
+        tools:text="+5000" />
+
+    <TextView
+        android:id="@+id/previous_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/half"
+        app:layout_constraintTop_toBottomOf="@+id/current_balance_value"
+        tools:text="Octobre" />
+
+    <TextView
+        android:id="@+id/previous_balance_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:text="balance"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/previous_online_title"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/half"
+        app:layout_constraintTop_toBottomOf="@+id/previous_date" />
 
-        <FrameLayout
-            android:layout_marginRight="16dp"
-            android:layout_weight="2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/previous_online_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="online"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/previous_balance_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/previous_balance_title"
+        app:layout_constraintTop_toTopOf="@+id/previous_balance_title" />
 
-            <ImageView android:id="@+id/weather"
-                app:srcCompat="@drawable/sun"
-                android:adjustViewBounds="true"
-                android:layout_gravity="center"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:contentDescription="@null" />
-        </FrameLayout>
+    <TextView
+        android:id="@+id/balance_previous"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/previous_balance_title"
+        app:layout_constraintStart_toStartOf="@+id/previous_balance_title"
+        app:layout_constraintTop_toBottomOf="@+id/previous_balance_title"
+        tools:text="+5000" />
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_gravity="center"
-            android:layout_weight="3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_marginBottom="32dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:text="balance"
-                        android:textSize="12sp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView android:id="@+id/balance_current"
-                        tools:text="+5000"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_marginLeft="24dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:text="online"
-                        android:textSize="12sp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView android:id="@+id/online_current"
-                        tools:text="+5000"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/date_previous"
-                tools:text="Octobre"
-                android:textSize="18sp"
-                android:textColor="@android:color/black"
-                android:textStyle="bold"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="6dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:text="balance"
-                        android:textSize="12sp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView android:id="@+id/balance_previous"
-                        tools:text="+5000"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_marginLeft="24dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:text="online"
-                        android:textSize="12sp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView android:id="@+id/online_previous"
-                        tools:text="+5000"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
+    <TextView
+        android:id="@+id/online_previous"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/previous_online_title"
+        app:layout_constraintStart_toStartOf="@+id/previous_online_title"
+        app:layout_constraintTop_toBottomOf="@+id/previous_online_title"
+        tools:text="+5000" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/accounts"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@color/background"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weather"
         tools:listitem="@layout/item_account" />
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
