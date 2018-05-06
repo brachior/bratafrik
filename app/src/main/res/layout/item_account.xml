@@ -5,8 +5,8 @@
     android:baselineAligned="false"
     android:background="@drawable/item_account_background"
     android:paddingTop="8dp"
-    android:paddingLeft="14dp"
-    android:paddingRight="14dp"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="8dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">

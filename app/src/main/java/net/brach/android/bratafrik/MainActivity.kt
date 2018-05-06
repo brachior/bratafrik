@@ -42,16 +42,16 @@ class MainActivity : AppCompatActivity() {
 
 class AccountAdapter(private val accounts: ArrayList<AccountItem>) : RecyclerView.Adapter<AccountAdapter.VH>() {
 
-    override fun onBindViewHolder(holder: VH?, position: Int) {
-        if (holder?.itemView != null) {
-            accounts[position].bind(holder.itemView)
+    override fun onBindViewHolder(holder: VH, position: Int) {
+        when {
+            holder.itemView != null -> accounts[position].bind(holder.itemView)
         }
     }
 
     override fun getItemCount(): Int = accounts.size
 
-    override fun onCreateViewHolder(parent: ViewGroup?, layout: Int): VH =
-        VH(LayoutInflater.from(parent?.context).inflate(layout, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, layout: Int): VH =
+        VH(LayoutInflater.from(parent.context).inflate(layout, parent, false))
 
     override fun getItemViewType(position: Int): Int = accounts[position].layout()
 
